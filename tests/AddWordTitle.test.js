@@ -18,8 +18,10 @@ test("title of AddWord is changing according to requirement", async () => {
       "https://ssl.gstatic.com/dictionary/static/sounds/20200429/hello--_gb_1.mp3",
     meaning: "used as a greeting or to begin a phone conversation.",
   }));
-  const user = userEvent.setup();
   jest.useFakeTimers();
+    const user = userEvent.setup({
+    advanceTimers: jest.advanceTimersByTime,
+});
 
   render(<AddWord navigation={{ setOptions: mockedSetOptions }} />);
 
